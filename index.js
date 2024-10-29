@@ -7,8 +7,12 @@ const dotenv = require('dotenv').config()
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Enable CORS
-app.use(cors());
+const corsOptions = {
+    origin: 'http://your-frontend-domain.com', // Replace with your frontend URL
+    methods: ['GET', 'POST'], // Specify allowed methods
+};
+
+app.use(cors(corsOptions));
 
 // Middleware for parsing JSON requests
 app.use(express.json());
